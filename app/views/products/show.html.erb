@@ -30,6 +30,6 @@
   <strong>Subcategory:</strong>
   <%= @product.subcategory %>
 </p>
-
+<a href="/cart/<%= @product.id %>">Add To Cart</a>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
