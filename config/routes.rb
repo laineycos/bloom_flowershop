@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products
   
   resources :profiles
+  #get ':user_name', to: 'profiles#show', as: :profile  
  
   devise_for :users
   get '/cart' => 'cart#index' #renders cart controller with index action
