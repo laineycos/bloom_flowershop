@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cartapp</title>
+  <title>Bloom Flowershop</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   
@@ -13,7 +14,6 @@
     <%= link_to "Home", root_path %>
     <%= link_to "Flowers", products_path %>
     <%= link_to "About", page_about_path %>
-    <%= link_to "FAQs", page_faqs_path %>
     <%= link_to "Contact Us", page_contact_path %>
   </div>
   
@@ -35,6 +35,13 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
 </div>
+
+
+<!--<div id="footer">
+    Ringsend, Dublin 4 | Tel: 01 397942
+    &copy; 2016 Bloom Flower Shop
+</div>
+-->
 
 </body>
 </html>
