@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'users/show'
+
   root 'page#home' #pages controller lets access to home method
   
   resources :products
@@ -10,11 +13,10 @@ Rails.application.routes.draw do
   get '/cart/clear' => 'cart#clearCart' #when user clears cart he will be redirected to index page
   get '/cart/:id' => 'cart#add' #allows user to add to cart products
   
+  resources :users
   resources :charges
   
   get 'page/about'
-
-  get 'page/faqs'
 
   get 'page/contact'
 
