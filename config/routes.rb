@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   
   resources :products
   
-  resources :profiles
   #get ':user_name', to: 'profiles#show', as: :profile  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
