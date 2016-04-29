@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
+  get 'users/index' => 'users#show'
+
   get 'users/show'
+
+  get 'admin/show'
 
   root 'page#home' #pages controller lets access to home method
   
@@ -8,12 +14,18 @@ Rails.application.routes.draw do
   
   #get ':user_name', to: 'profiles#show', as: :profile  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get '/admin' => 'rails_admin/main#dashboard'
+  
   devise_for :users
   get '/cart' => 'cart#index' #renders cart controller with index action
   get '/cart/clear' => 'cart#clearCart' #when user clears cart he will be redirected to index page
   get '/cart/:id' => 'cart#add' #allows user to add to cart products
   
   resources :users
+  #get '/users/:id' => 'users#index'
+  get '/user/:id' => 'users#show'
+  
+  resources :admin 
   resources :charges
   
   get 'page/about'
