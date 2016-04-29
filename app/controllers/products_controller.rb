@@ -65,10 +65,14 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
-    end
+      rescue ActiveRecord::RecordNotFound #product with that id cannot be found
+      redirect_to action: :index        #redirect to index page takes place instead of crashing
+  end
+    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price, :category, :subcategory)
+      params.require(:product).permit(:title, :description, :productImage, :quantity, :price, :category, :subcategory)
     end
+
 end

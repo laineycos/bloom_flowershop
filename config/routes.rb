@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   
   resources :products
   
-  #get ':user_name', to: 'profiles#show', as: :profile  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/admin' => 'rails_admin/main#dashboard'
   
@@ -26,14 +25,23 @@ Rails.application.routes.draw do
   get '/user/:id' => 'users#show'
   
   resources :admin 
+  resources :profiles
+  #get ':user_name', to: 'profiles#show', as: :profile  
+ 
+  #get '/cart/:id' => 'cart#remove'  #allows user to remove to cart products
+ 
   resources :charges
   
   get 'page/about'
+
+  get 'page/faqs'
 
   get 'page/contact'
 
   get 'charges/new'
 
+
+  #post 'product/:id', to: 'cart#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

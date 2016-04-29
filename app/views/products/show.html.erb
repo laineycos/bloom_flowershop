@@ -12,8 +12,9 @@
 </p><br>
 
 <p>
-  <strong>Image url:</strong><br>
-  <%= @product.image_url %>
+  <strong>Image:</strong><br>
+  <%= image_tag @product.productImage.url %>
+  <% debug @product.productImage.url %>
   
 </p><br>
 
@@ -31,6 +32,9 @@
   <strong>Subcategory:</strong>
   <%= @product.subcategory %>
 </p>
+
+
 <a href="/cart/<%= @product.id %>">Add To Cart</a>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

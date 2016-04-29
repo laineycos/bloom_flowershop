@@ -1,6 +1,8 @@
 class ChargesController < ApplicationController
-    
+before_action :authenticate_user!, except: [:index] # authenticate user before any action, allow only index controller
     def new
+    #display total in checkout
+      @amount = params[:amount]
     end
 
 def create
